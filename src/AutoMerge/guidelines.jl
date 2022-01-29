@@ -808,8 +808,8 @@ function _run_pkg_commands(
             env[k] = ENV[k]
         end
     end
-    @debug readdir(homedir())
-    Base.run(Cmd(`git config --show-origin --get-regexp 'credential.*'`; env=env))
+    @debug read(joinpath(homedir(), ".gitconfig"), String)
+    Base.run(Cmd(`git config --global url."git@github.com:".insteadOf "https://github.com/"`))
 
     cmd = Cmd(`$(Base.julia_cmd()) -e $(code)`; env=env)
 
