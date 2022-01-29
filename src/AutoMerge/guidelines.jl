@@ -808,7 +808,7 @@ function _run_pkg_commands(
         end
     end
 
-    cmd = Cmd(`$(Base.julia_cmd()) -e $(code)`; env=env)
+    cmd = Cmd(`$(Base.julia_cmd()) -e $(code)`; env=ENV)
 
     # GUI toolkits may need a display just to load the package
     xvfb = Sys.which("xvfb-run")
