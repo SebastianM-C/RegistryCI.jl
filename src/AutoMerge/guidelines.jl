@@ -809,7 +809,9 @@ function _run_pkg_commands(
         end
     end
     @debug readdir(homedir())
-    @debug run(Cmd(`git config --show-origin --get-regexp 'credential.*'`; env=env))
+    @debug pipeline(Cmd(`git config --show-origin --get-regexp 'credential.*'`; env=env),
+        stdout=stdout, stderr=stderr
+    )
 
     cmd = Cmd(`$(Base.julia_cmd()) -e $(code)`; env=env)
 
