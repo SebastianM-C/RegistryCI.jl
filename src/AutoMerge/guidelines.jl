@@ -801,6 +801,7 @@ function _run_pkg_commands(
         "PYTHON" => "",
         "R_HOME" => "*",
         "JULIA_PKG_PRECOMPILE_AUTO" => "0",
+        "JULIA_PKG_USE_CLI_GIT" => "true"
     )
     for k in ("HOME", "PATH", "HTTP_PROXY", "HTTPS_PROXY", "SSH_AUTH_SOCK", "SSH_AGENT_PID", "JULIA_PKG_SERVER")
         if haskey(ENV, k)
